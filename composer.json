@@ -1,0 +1,21 @@
+{
+    "name": "novaday-co/debugher",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "NovadayCo\\Debugher\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "hosein.xz",
+            "email": "h.askari.16@gmail.com"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^6.3",
+        "jenssegers/agent": "^2.6"
+    },
+    "minimum-stability": "dev"
+}
