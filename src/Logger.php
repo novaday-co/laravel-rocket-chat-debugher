@@ -1,6 +1,6 @@
 <?php
 
-namespace NovadayCo\Debugher;
+namespace Novaday\Debugher;
 
 use GuzzleHttp\Client;
 
