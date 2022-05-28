@@ -7,7 +7,8 @@ use GuzzleHttp\Client;
 
 class Logger{
 
-    public $username, $channel, $content, $fileName, $line, $traceString, $message, $name, $ip;
+    private $username, $fileName, $line, $traceString, $message, $name, $ip;
+    public $channel, $content;
 
     private static function getHttpHeaders(){
         return   [
@@ -17,6 +18,7 @@ class Logger{
         ];
     }
 
+    // auth()->user
     public function fromUser($user)
     {
         $this->username = optional($user)->username;
