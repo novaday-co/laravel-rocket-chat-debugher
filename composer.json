@@ -1,5 +1,6 @@
 {
     "name": "novaday-co/laravel-rocket-chat-debugher",
+    "description": "Laravel Rocket chat Debugher, push all logs to rocket chat channels",
     "type": "project",
     "license": "MIT",
     "autoload": {
