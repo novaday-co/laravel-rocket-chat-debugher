@@ -26,7 +26,7 @@ class DebugherServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
 
             $this->publishes([
-                __DIR__.'/../config/debugher.php' => config_path('debugher.php'),
+                __DIR__.'/../config/debugher.php' => config_path('debugher2.php'),
             ], 'config');
 
         }

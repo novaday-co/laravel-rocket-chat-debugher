@@ -1,5 +1,5 @@
 {
-    "name": "novaday-co/debugher",
+    "name": "novaday-co/laravel-rocket-chat-debugher",
     "type": "project",
     "license": "MIT",
     "autoload": {
