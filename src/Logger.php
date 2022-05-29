@@ -2,7 +2,7 @@
 
 namespace Novaday\Debugher;
 
-use GuzzleHttp\Client;
+use Novaday\Debugher\Events\LogPushed;
 
 
 class Logger{
@@ -10,7 +10,7 @@ class Logger{
     private $username, $fileName, $line, $traceString, $message, $name, $ip;
     public $channel, $content;
 
-    private static function getHttpHeaders(){
+    public static function getHttpHeaders(){
         return   [
             'headers' => [
                 'Content-Type' => 'application/json',
@@ -27,52 +27,25 @@ class Logger{
         return $this;
     }
 
-    public function fromIp($userIp)
+    public function withIp($userIp)
     {
         $this->ip = $userIp;
 
         return $this;
     }
 
-    public function to($channel)
+    public function withException($exception)
     {
-        $this->channel = $channel;
-
-        return $this;
-    }
-
-    public function sawInFile($fileName)
-    {
-        $this->fileName = $fileName;
-
-        return $this;
-    }
-
-    public function inLine($line)
-    {
-        $this->line = $line;
-
-        return $this;
-    }
-
-    public function message($message)
-    {
-        $this->message = $message;
-
-        return $this;
-    }
-
-    public function trace($traceString)
-    {
-        $this->traceString = $traceString;
+        $this->fileName = optional($exception)->getFile();
+        $this->line = optional($exception)->getLine();
+        $this->message = optional($exception)->getMessage();
+        $this->traceString = optional($exception)->getTraceAsString();
 
         return $this;
     }
 
     public function send(){
-        $client = new Client(self::getHttpHeaders());
-        $body['text'] = $this->getMessage();
-        $client->post( config()->get('debugher.end_point'),  ['form_params'=> $body]);
+        event(new LogPushed($this->getMessage()));
     }
 
     private function getMessage(){

@@ -2,5 +2,6 @@
 
 
 return [
-    'end_point' => 'https://chat.novaday-co.ir/hooks/LFfXpqmHh92HapHjn/Agbgon72mQBSdWeLoxq7e23BexacnCQAbbYNvxWjgCk2HTWE',
+    'end_point' => 'CHANNEL_URL_WITH_TOKEN',
+    'channel_name' => 'CHANNEL_NAME',
 ];

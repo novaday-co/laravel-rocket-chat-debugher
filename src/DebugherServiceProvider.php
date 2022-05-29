@@ -3,6 +3,7 @@
 namespace Novaday\Debugher;
 
 use Illuminate\Support\ServiceProvider;
+use Novaday\Debugher\Providers\EventServiceProvider;
 
 class DebugherServiceProvider extends ServiceProvider
 {
@@ -14,6 +15,7 @@ class DebugherServiceProvider extends ServiceProvider
     public function register()
     {
         $this->mergeConfigFrom(__DIR__.'/../config/debugher.php', 'debugher');
+        $this->app->register(EventServiceProvider::class);
     }
 
     /**
