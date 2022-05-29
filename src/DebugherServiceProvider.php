@@ -29,11 +29,11 @@ class DebugherServiceProvider extends ServiceProvider
 
             $this->publishes([
                 __DIR__.'/../config/debugher.php' => config_path('debugher.php'),
-            ], 'config');
+            ], 'debugher-config');
 
             \Artisan::call('vendor:publish', [
                 '--provider' => DebugherServiceProvider::class,
-                '--tag' => ['config'],
+                '--tag' => ['debugher-config'],
                 '--force' => true,
             ]);
 
