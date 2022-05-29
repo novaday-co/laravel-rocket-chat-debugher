@@ -21,7 +21,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Novaday\\Debugher\\\\DebugherServiceProvider"
+                "Novaday\\Debugher\\DebugherServiceProvider"
             ]
         }
     }
