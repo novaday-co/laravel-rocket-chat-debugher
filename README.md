@@ -4,6 +4,7 @@
 ```php
         return [
             'end_point' => YOUR_ROCKET_CHAT_CHANNEL_URL_WITH_TOKEN,
+            'channel_name' => 'CHANNEL_NAME',
         ];
 ```
 
@@ -15,12 +16,9 @@
 ### Finally, put the following code to Exceptions/Handler.php where ever you need to push log
 
 ```php
-        resolve(Logger::class)->fromUser(auth()->user())
-                ->fromIp(request()->ip())
-                ->to('Logger-Channel')
-                ->sawInFile($exception->getFile())
-                ->inLine($exception->getLine())
-                ->message($exception->getMessage())
-                ->trace($exception->getTraceAsString())
+            resolve(Logger::class)
+                ->fromUser(auth()->user())
+                ->withIp(request()->ip())
+                ->withException($exception)
                 ->send();
 ```
